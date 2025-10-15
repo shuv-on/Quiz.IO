@@ -1,6 +1,46 @@
 import React from 'react';
-
+import { Link, NavLink } from 'react-router-dom';
+import homeImg from '../../assets/home.svg'
+import ideaImg from '../../assets/idea.svg'
+import leaderImg from '../../assets/leaderboard.svg'
+import aboutImg from '../../assets/about.svg'
+import loginImg from '../../assets/log-in.svg'
 const NavBar = () => {
+  const link = <>
+  <li>
+       <NavLink to="/" className={({ isActive }) =>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
+                }>
+              <img src={homeImg} alt="Home" className='w-5 h-5' />     
+            Home 
+      </NavLink>
+  </li>
+   <li>
+       <NavLink to="/quiz" className={({ isActive }) =>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
+                }>
+                  <img src={ideaImg} alt="Home" className='w-5 h-5' />
+            Quiz 
+      </NavLink>
+  </li>
+   <li>
+       <NavLink to="/leaderboard" className={({ isActive }) =>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
+                }>
+            <img src={leaderImg} alt="Home" className='w-5 h-5' />
+            Leaderboard 
+      </NavLink>
+  </li>
+   <li>
+       <NavLink to="/about" className={({ isActive }) =>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
+                }>
+                   <img src={aboutImg} alt="Home" className='w-5 h-5' />
+            About Us 
+      </NavLink>
+  </li>
+     
+  </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -11,36 +51,28 @@ const NavBar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+        {link}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    {/* Logo */} 
+    <div className='mx-5'>
+       <Link to="/" className='flex items-center justify-around gap-2'>
+           <img className='h-10' src={ideaImg}  />
+           <h1 className='text-xl font-semibold text-violet-600'>Quiz</h1>
+       </Link>
+    </div>
+    
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+      {link}
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <button className='btn btn-primary rounded-xl border-none bg-gradient-to-r from-green-500 to-blue-500'>
+                        <img src={loginImg} alt="" className='h-5 ' />
+                        Login
+                    </button>
   </div>
 </div>
     );
