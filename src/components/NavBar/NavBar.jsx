@@ -5,36 +5,40 @@ import ideaImg from '../../assets/idea.svg'
 import leaderImg from '../../assets/leaderboard.svg'
 import aboutImg from '../../assets/about.svg'
 import loginImg from '../../assets/log-in.svg'
-const NavBar = () => {
+const NavBar = ({startLoading}) => {
   const link = <>
   <li>
        <NavLink to="/" className={({ isActive }) =>
-                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
-                }>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-yellow-600 ${isActive ? 'border-b-2 border-yellow-600' : ''}`
+                }
+                onClick={startLoading}>
               <img src={homeImg} alt="Home" className='w-5 h-5' />     
             Home 
       </NavLink>
   </li>
    <li>
        <NavLink to="/quiz" className={({ isActive }) =>
-                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
-                }>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-yellow-600 ${isActive ? 'border-b-2 border-yellow-600' : ''}`
+                }
+                onClick={startLoading} >
                   <img src={ideaImg} alt="Home" className='w-5 h-5' />
             Quiz 
       </NavLink>
   </li>
    <li>
        <NavLink to="/leaderboard" className={({ isActive }) =>
-                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
-                }>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-yellow-600 ${isActive ? 'border-b-2 border-yellow-600' : ''}`
+                }
+                onClick={startLoading} >
             <img src={leaderImg} alt="Home" className='w-5 h-5' />
             Leaderboard 
       </NavLink>
   </li>
    <li>
        <NavLink to="/about" className={({ isActive }) =>
-                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-violet-600 ${isActive ? 'border-b-2 border-violet-600' : ''}`
-                }>
+                    `flex items-center gap-2 m-2 hover:border-b-2 hover:border-yellow-600 ${isActive ? 'border-b-2 border-yellow-600' : ''}`
+                }
+                onClick={startLoading} >
                    <img src={aboutImg} alt="Home" className='w-5 h-5' />
             About Us 
       </NavLink>
@@ -56,9 +60,9 @@ const NavBar = () => {
     </div>
     {/* Logo */} 
     <div className='mx-5'>
-       <Link to="/" className='flex items-center justify-around gap-2'>
-           <img className='h-10' src={ideaImg}  />
-           <h1 className='text-xl font-semibold text-violet-600'>Quiz</h1>
+       <Link to="/" className='flex items-center justify-around gap-2' onClick={startLoading}>
+           <img className='h-8' src={ideaImg}  />
+           <h1 className='text-xl font-semibold text-yellow-600'>Quiz.IO</h1>
        </Link>
     </div>
     
@@ -69,7 +73,7 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <button className='btn btn-primary rounded-xl border-none bg-gradient-to-r from-green-500 to-blue-500'>
+    <button className='btn btn-primary rounded-xl border-none bg-gradient-to-r from-yellow-500 to-yellow-800'>
                         <img src={loginImg} alt="" className='h-5 ' />
                         Login
                     </button>

@@ -33,24 +33,25 @@ useEffect(() => {
     return (
         <div>
             <div>
-                <NavBar></NavBar>
+                <NavBar startLoading={startLoading}></NavBar>
             </div>
             <main>
-                <Outlet/>
+                <Outlet context={{startLoading}}/>
             </main>
             <div>
                 {showFooter && <Footer></Footer>} 
             </div>
             {loading && (
                 <div className='fixed inset-0 flex items-center justify-center bg-gray-100/75 backdrop-blur-sm z-50'>
-                    <div className="flex items-center gap-1">
-                    <span className="text-8xl font-semibold text-gray-400">L</span>
+                    <div className="flex items-center ">
+                   
                     <img
                         src={ideaImg}
                         
-                        className="h-16 animate-spin" 
+                        className="h-25 animate-ping" 
                     />
-                    <span className="text-8xl font-semibold text-gray-400">oading</span>
+                    
+                    
                    </div>
                 </div>
                 
