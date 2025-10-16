@@ -39,10 +39,10 @@ useEffect(() => {
                 <Outlet context={{startLoading}}/>
             </main>
             <div>
-                {showFooter && <Footer></Footer>} 
+                {showFooter && <Footer startLoading={startLoading}></Footer>} 
             </div>
             {loading && (
-                <div className='fixed inset-0 flex items-center justify-center bg-black backdrop-blur-sm z-50'>
+                <div className='fixed inset-0 flex items-center justify-center bg-gray-100/75 backdrop-blur-sm z-50'>
                     <div className="flex items-center ">
                    
                     <img
