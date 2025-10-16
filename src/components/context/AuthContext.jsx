@@ -13,6 +13,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   useEffect(() => {
     // Page load
@@ -33,15 +34,22 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
   };
 
+  
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   const value = {
     user,
     login,
     logout,
-    loading
+    loading,
+    isModalOpen,
+    openModal,   
+    closeModal   
   };
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;  // Simple loader
+    return <div className="flex justify-center items-center h-screen">Loading...</div>;
   }
 
   return (

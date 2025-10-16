@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';  
 import homeImg from '../../assets/home.svg';
@@ -7,12 +7,11 @@ import leaderImg from '../../assets/leaderboard.svg';
 import aboutImg from '../../assets/about.svg';
 import loginImg from '../../assets/log-in.svg';
 import profileImg from '../../assets/profile.jpg'; 
-import AuthModal from '../AuthModal/AuthModal'; 
+
 
 const NavBar = ({ startLoading }) => {
-  const { user, logout } = useAuth();  
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const { user, logout, openModal } = useAuth(); 
+  
   const link = <>
     <li>
       <NavLink to="/" className={({ isActive }) =>
@@ -38,7 +37,7 @@ const NavBar = ({ startLoading }) => {
       }
         onClick={startLoading} >
         <img src={leaderImg} alt="Leaderboard" className='w-5 h-5' />
-        Leaderboard
+        Dashboard
       </NavLink>
     </li>
     <li>
@@ -62,7 +61,7 @@ const NavBar = ({ startLoading }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </div>
-            <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <ul tabIndex={-1} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
               {link}
             </ul>
           </div>
@@ -88,19 +87,18 @@ const NavBar = ({ startLoading }) => {
                   {profileImg ? (
                     <img src={profileImg} alt="Profile" />
                   ) : (
-                    // Placeholder 
                     <div className="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold">
                       {user.username ? user.username.charAt(0).toUpperCase() : 'U'}
                     </div>
                   )}
                 </div>
               </div>
-              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
                   <a className="text-sm">Welcome, {user.username || 'User'}!</a>
                 </li>
                 <li>
-                  <button onClick={logout} className="text-red-500 hover:bg-red-100 rounded">
+                  <button onClick={logout} className="text-red-500 hover:bg-red-100 rounded w-full text-left p-2">
                     Logout
                   </button>
                 </li>
@@ -112,7 +110,7 @@ const NavBar = ({ startLoading }) => {
               className='btn btn-primary rounded-xl border-none bg-gradient-to-r from-yellow-500 to-yellow-600'
               onClick={() => {
                 startLoading();
-                setIsModalOpen(true);
+                openModal();
               }}
             >
               <img src={loginImg} alt="Login" className='h-5 ' />
@@ -121,9 +119,7 @@ const NavBar = ({ startLoading }) => {
           )}
         </div>
       </div>
-
-      {/* Modal only if not logged in */}
-      {!user && <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+      
     </>
   );
 };
