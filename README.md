@@ -10,7 +10,7 @@
  - React JS + Vite
  - React-Router
  - Tailwind CSS + Daisy Ui
- ## - Backend
+ ## - Backendk
  - JAVA spring-boot
  - Database mysql
  ## - IDE

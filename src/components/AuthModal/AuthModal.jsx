@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useAuth } from '../context/AuthContext';  // Import যোগ (path adjust)
+import { useAuth } from '../context/AuthContext';  
 
 const AuthModal = ({ isOpen, onClose }) => {
-  const { login } = useAuth();  // Context use যোগ
+  const { login } = useAuth(); 
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState('');
@@ -26,7 +26,7 @@ const AuthModal = ({ isOpen, onClose }) => {
       const data = await response.text();
       if (response.ok) {
         alert(data);  // Success message
-        // User data extract + login state update যোগ
+        // User data extract + login state update 
         const userData = isSignup 
           ? { username: formData.username, email: formData.email } 
           : { username: data.split('Welcome back, ')[1]?.split('!')[0] || 'User', email: formData.email };
