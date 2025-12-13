@@ -1,5 +1,5 @@
 ## 2nd-year-2nd-sem Project
-[Quiz.Io](quiz.io.shuvon.surge.sh) 
+[Quiz.Io](http://quiz.io.shuvon.surge.sh/)
 
 
 
