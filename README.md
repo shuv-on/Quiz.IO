@@ -5,7 +5,7 @@
 
  Develop a Quiz with simple 5 Questions where there will be login, once game over score will be saved into database (Score of each Q and total score and name and email).
 
- ## Using Technologies
+ ## Using Technologies & Tools
  ## - Frontend 
  - React JS + Vite
  - React-Router
