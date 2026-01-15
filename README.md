@@ -1,4 +1,4 @@
-## 2nd-year-2nd-sem Project
+## JAVA springboot Project
 [Quiz.Io](http://quiz.io.shuvon.surge.sh/)
 
 
